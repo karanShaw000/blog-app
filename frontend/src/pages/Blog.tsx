@@ -5,9 +5,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import timer from "../utils/timer";
+import BlogLoading from "@/components/loading/BlogLoading";
 
 const Blog = () => {
-  const [blog, setBlog] = useState<BlogType>({});
+  const [blog, setBlog] = useState<BlogType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const param = useParams();
   useEffect(() => {
@@ -28,7 +29,7 @@ const Blog = () => {
   }, [param]);
   return (
     <>
-      {isLoading && <p className="text-center">Loading...</p>}
+      {isLoading && <BlogLoading />}
       {!isLoading && (
         <section className="max-w-screen-xl w-[80%] mx-auto py-6  grid grid-cols-[70%_20%] justify-between">
           <div className="space-y-3">

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import AuthorIcon from "./AuthorIcon";
-import Button from "./ui/Button";
 
 const NavBar = () => {
   return (

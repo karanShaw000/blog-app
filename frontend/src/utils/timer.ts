@@ -1,4 +1,7 @@
-export default function timer(time: Date) {
+export default function timer(time: Date | undefined) {
+  if (time === undefined) {
+    return "err";
+  }
   const uploadTime = new Date(time);
   const time_diff =
     Math.abs(new Date().getTime() - uploadTime.getTime()) / 1000;
